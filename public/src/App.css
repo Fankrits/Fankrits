@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@plugin "daisyui" {
+  themes: all;
+}
+
+OnHover:hover {
+  scale: 110;
+  transition: 0.3s ease-in-out;
+}
