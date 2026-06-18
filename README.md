@@ -1,7 +1,5 @@
 # Hi there, I'm Kritsada Nhanjeing (Fankrits) 👋
 
-### AI Product Engineer & AI Operation Specialist
-
 I am a Mathematics graduate from Thammasat University turned AI builder. I bridge the gap between analytical thinking and rapid, AI-driven product delivery.
 
 I enjoy turning ideas into practical systems, combining product thinking, operations, and AI workflows to ship useful things fast.
