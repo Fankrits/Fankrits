@@ -19,6 +19,9 @@ const config = defineConfig({
     options: { typeAware: true, typeCheck: true },
   },
   resolve: { tsconfigPaths: true },
+  optimizeDeps: {
+    include: ["use-sync-external-store/shim/with-selector.js"],
+  },
   plugins: lazyPlugins(() => [
     devtools(),
     nitro({ rollupConfig: { external: [/^@sentry\//] } }),
