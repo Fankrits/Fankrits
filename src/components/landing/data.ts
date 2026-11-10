@@ -7,12 +7,6 @@ export const PROFILE = {
   location: "Bangkok, TH",
 } as const;
 
-export const NAV_LINKS = [
-  { href: "#work", label: "Work" },
-  { href: "#about", label: "About" },
-  { href: "#contact", label: "Contact" },
-] as const;
-
 export interface Project {
   name: string;
   kicker: string;

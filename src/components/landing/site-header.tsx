@@ -2,35 +2,7 @@ import { useEffect, useState } from "react";
 import { Mail } from "lucide-react";
 import { GlassHeader } from "@/components/glassyui/glass-header";
 import { GlassButton } from "./deferred-glass";
-import { NAV_LINKS, PROFILE } from "./data";
-
-const SECTION_IDS = NAV_LINKS.map((link) => link.href.slice(1));
-
-/** Highlights the nav link of the section crossing the middle of the viewport. */
-function useActiveSection() {
-  const [active, setActive] = useState<string | null>(null);
-
-  useEffect(() => {
-    const elements = SECTION_IDS.map((id) => document.getElementById(id)).filter(
-      (el): el is HTMLElement => el !== null,
-    );
-    if (elements.length === 0) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) setActive(entry.target.id);
-          else setActive((current) => (current === entry.target.id ? null : current));
-        }
-      },
-      { rootMargin: "-45% 0px -50% 0px" },
-    );
-    elements.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
-  return active;
-}
+import { PROFILE } from "./data";
 
 /**
  * Floating glass navigation, inset from the top edge. Hidden (translated off-screen) while the
@@ -38,7 +10,6 @@ function useActiveSection() {
  * the glass keeps sampling the shader background.
  */
 export function SiteHeader({ visible }: { visible: boolean }) {
-  const active = useActiveSection();
   // Mount the glass header only once it is first needed: building its lens map is not free.
   const [shown, setShown] = useState(false);
   useEffect(() => {
@@ -74,17 +45,7 @@ export function SiteHeader({ visible }: { visible: boolean }) {
               </a>
             </GlassButton>
           }
-        >
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              aria-current={active === link.href.slice(1) ? "page" : undefined}
-            >
-              {link.label}
-            </a>
-          ))}
-        </GlassHeader>
+        ></GlassHeader>
       ) : null}
     </div>
   );
