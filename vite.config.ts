@@ -6,7 +6,7 @@ import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact, { reactCompilerPreset } from "@vitejs/plugin-react";
 import babel from "@rolldown/plugin-babel";
 import tailwindcss from "@tailwindcss/vite";
-import { nitro } from "nitro/vite";
+import { cloudflare } from "@cloudflare/vite-plugin";
 
 const config = defineConfig({
   staged: {
@@ -24,7 +24,8 @@ const config = defineConfig({
   },
   plugins: lazyPlugins(() => [
     devtools(),
-    nitro({ compressPublicAssets: true, rollupConfig: { external: [/^@sentry\//] } }),
+    // vitest sets node builtins as resolve.external, which the Cloudflare plugin rejects.
+    ...(process.env.VITEST ? [] : [cloudflare({ viteEnvironment: { name: "ssr" } })]),
     tailwindcss(),
     tanstackStart(),
     viteReact(),
