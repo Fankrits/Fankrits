@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="assets/banner.png" alt="Fankrits" width="100%" />
+
 # Hi, I'm Kritsada Nhanjeing (Fankrits) 👋
 
 **Mathematician turned AI builder, based in Bangkok.**
@@ -10,45 +12,14 @@
 
 ---
 
-I'm a mathematics graduate from Thammasat University who builds AI agents, MCP servers and the products around them. I like turning an analytical idea into something people can use, and I'm happiest where maths, operations and AI workflows meet.
+I'm a mathematics graduate from Thammasat University who builds AI agents, MCP servers and the products around them. I like turning an analytical idea into something people can use.
 
 ## About me
 
-|                           |                                                                                          |
-| :------------------------ | :--------------------------------------------------------------------------------------- |
-| 📍 **Based in**           | Bangkok, Thailand                                                                        |
-| 🎓 **Education**          | B.Sc. Mathematics, Thammasat University (2024)                                           |
-| 🧠 **Focus**              | AI operations, agent orchestration, MCP servers, prompt engineering and LLM benchmarking |
-| 📐 **Maths**              | Numerical linear algebra and spectral norms of circulant matrices                        |
-| 🗣️ **Languages**          | Thai, English                                                                            |
-| 🔨 **Currently building** | [SomeScript](https://somescript.com), an AI-native LaTeX editor                          |
-
-## Things I've built
-
-- **[SomeScript](https://somescript.com)**: a LaTeX editor with an AI chat that reads, edits and compiles your project. Web app and free desktop app.
-- **[uptodateStock](https://uptodatestock.com)**: a live S&P 500 sector heatmap beside daily market stories in Thai and English.
-- **[Zyplus](https://zyplus.app)**: an open-source markdown editor for macOS, Windows and Linux.
-- **[SomeMath](https://somemath.com)**: a math learning platform with 27 arcade-style games, in English and Thai.
-- **[Memize](https://memize.somemath.com)**: a cognitive training and party-game app that adapts to the player.
-
-## On GitHub
-
-| Repository                                                               | What it is                                                         | Language   |
-| :----------------------------------------------------------------------- | :----------------------------------------------------------------- | :--------- |
-| [**SomeScript**](https://github.com/Fankrits/SomeScript)                 | AI-native LaTeX editor: web app and desktop app                    | TypeScript |
-| [**zyplus-editor**](https://github.com/Fankrits/zyplus-editor)           | A cross-platform markdown editor that gets out of the way (MIT)    | TypeScript |
-| [**Winser**](https://github.com/Fankrits/Winser)                         | A native browser for Windows, built with WinUI 3 (MIT)             | C#         |
-| [**TaskTUI**](https://github.com/Fankrits/TaskTUI)                       | A fast, lightweight terminal task manager and system monitor (MIT) | Rust       |
-| [**somemath-watermark**](https://github.com/Fankrits/somemath-watermark) | A PDF watermarking studio with live preview                        | TypeScript |
-
-More public repositories are on my [profile](https://github.com/Fankrits?tab=repositories).
-
-## Research
-
-My undergraduate research project studied bounds for the spectral norm of circulant and r-circulant matrices built from Gaussian Padovan numbers, with two classmates at Thammasat University (2024).
-
-- [Project report](https://fankrits.com/thesis/report.pdf), in Thai, 40 pages
-- [Research poster](https://fankrits.com/thesis/poster.pdf), in Thai, 1 page
+|                  |                                                |
+| :--------------- | :--------------------------------------------- |
+| 📍 **Based in**  | Bangkok, Thailand                              |
+| 🎓 **Education** | B.Sc. Mathematics, Thammasat University (2024) |
 
 ## What I work with
 
@@ -70,5 +41,3 @@ My undergraduate research project studied bounds for the spectral norm of circul
 - 🌐 **Website:** [fankrits.com](https://fankrits.com)
 - 📧 **Email:** [contact@fankrits.com](mailto:contact@fankrits.com)
 - 📸 **Instagram:** [@fankrits](https://instagram.com/fankrits)
-
-I'm open to work on AI operations, agent workflows, custom MCP servers and mathematical optimisation. Send a short note and I'll reply.
