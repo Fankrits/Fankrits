@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/banner.png" alt="Fankrits" width="100%" />
+<img src="assets/banner.jpg" alt="Fankrits" width="100%" />
 
 # Hi, I'm Kritsada Nhanjeing (Fankrits) 👋
 
