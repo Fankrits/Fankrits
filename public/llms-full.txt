@@ -1,0 +1,38 @@
+# Kritsada Nhanjeing (Fankrits): full profile
+
+Canonical page: https://fankrits.com
+
+## Who
+Kritsada Nhanjeing (Thai: กฤษฎา หนานเจียง), online handle Fankrits, is a mathematician and AI builder based in Bangkok, Thailand. He holds a B.Sc. in Mathematics (2024) from Thammasat University, Faculty of Science and Technology, Department of Mathematics and Statistics. His working title is AI Operations Specialist and Mathematical Analyst.
+
+## Focus areas
+- AI operations and agents: prompt engineering, LLM benchmarking, agent workflow supervision, custom MCP (Model Context Protocol) servers and tool routing.
+- Mathematics: numerical linear algebra, spectral matrix analysis, statistical modelling.
+- Frontend and systems: TypeScript, React 19, Next.js 16, TanStack Start, Tailwind CSS v4.
+- Backend and cloud: Supabase, PostgreSQL, Drizzle ORM, Redis, Docker Compose.
+
+## Projects
+### SomeScript (https://somescript.com)
+An AI-native LaTeX editor with CodeMirror 6, a PDF preview with SyncTeX (click to jump between source and PDF), project-wide search and replace, and an AI chat in the sidebar that works on the open project. The assistant can list and search files, read, edit, write, move and delete them, compile the project and keep a live to-do plan. Edits are shown as a diff with Undo, actions that need approval show confirmation cards, and paths cannot leave the project folder. Available in the browser (hosted, with the Eve agent, Next.js 16, Clerk, Drizzle, Stripe, a Bun + Tectonic compile service) and as a free desktop app for macOS, Windows and Linux (Tauri 2 and Rust, local Tectonic compiler, no account). The desktop chat is bring-your-own-key: OpenAI, Anthropic, Gemini, OpenRouter, local models via Ollama or LM Studio, or any OpenAI-compatible endpoint; keys stay on the user's computer. Source: https://github.com/Fankrits/SomeScript. Releases: https://github.com/Fankrits/SomeScript/releases/latest
+
+### uptodateStock (https://uptodatestock.com)
+A live S&P 500 sector heatmap next to daily market stories written in full Thai and English. An AI schedule publishes each article through an authenticated MCP endpoint, linked to the tickers it affects. Built with TanStack Start, Neon Postgres and Better Auth. Prices are delayed.
+
+### Zyplus (https://zyplus.app)
+An open-source (MIT) markdown editor that keeps notes as plain .md files in the user's own folders. Each tab can switch between rich text and raw markdown. Mermaid diagrams and KaTeX math render inline. Runs on macOS, Windows and Linux. Built with Tauri 2, React 19 and Rust. Source: https://github.com/Fankrits/zyplus-editor
+
+### SomeMath (https://somemath.com)
+A math learning platform with courses and 27 arcade-style math games that teach understanding before speed. English and Thai, KaTeX formulas, CMS-managed content and PDF certificates. Built with Next.js 16, Sanity, Clerk and Stripe.
+
+### Memize (https://memize.somemath.com)
+An offline-ready progressive web app for cognitive training and party games. Gemini tailors each game to the player and an Elo-style rating tunes difficulty. Teams share leaderboards. Built with Next.js 16, Gemini and Supabase.
+
+## Research
+Undergraduate research project (MA491, academic year 2567 / 2024) on bounds for the spectral norm of circulant and r-circulant matrices whose entries are Gaussian Padovan numbers, co-authored with Wiroon Phuwadonpairoj and Sasikan Paripunnakorn.
+- Report (Thai, PDF, 40 pages): https://fankrits.com/thesis/report.pdf
+- Poster (Thai, PDF, 1 page): https://fankrits.com/thesis/poster.pdf
+
+## Contact
+- Email: contact@fankrits.com
+- GitHub: https://github.com/Fankrits
+- Website: https://fankrits.com

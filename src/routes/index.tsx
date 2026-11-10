@@ -1,15 +1,26 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ShaderGradientCanvas, ShaderGradient } from "@shadergradient/react";
-import { useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { asciiArt } from "../asciiArt";
-import TerminalDemo from "../components/terminal-demo";
+import { SiteHeader } from "@/components/landing/site-header";
+import { WorkSection } from "@/components/landing/work-section";
+import { AboutSection } from "@/components/landing/about-section";
+import { ContactSection } from "@/components/landing/contact-section";
+
+const loadShaderBackground = () => import("@/components/landing/shader-background");
+const ShaderBackground = lazy(loadShaderBackground);
+
+// Start fetching the WebGL chunk as soon as the route module runs, in parallel with hydration.
+if (typeof window !== "undefined") void loadShaderBackground();
 
 export const Route = createFileRoute("/")({ component: Home });
 
 function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
+  const [mounted, setMounted] = useState(false);
   const [disintegratingText, setDisintegratingText] = useState(asciiArt);
+
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -72,94 +83,40 @@ function Home() {
     asciiOpacity = Math.max(0, 1 - (progress - 0.2) / 0.05);
   }
 
-  // Phase 2: Bio Overlay (progress 0.18 -> 0.52)
-  // 0.18 -> 0.30: Fade in & move to center
-  // 0.30 -> 0.42: Stay centered & 100% visible
-  // 0.42 -> 0.52: Fade out & move slightly upward
-  let bioOpacity = 0;
-  if (progress >= 0.18 && progress <= 0.3) {
-    bioOpacity = (progress - 0.18) / 0.12;
-  } else if (progress > 0.3 && progress < 0.42) {
-    bioOpacity = 1;
-  } else if (progress >= 0.42 && progress <= 0.52) {
-    bioOpacity = 1 - (progress - 0.42) / 0.1;
-  }
-
-  let bioTranslateY = 0;
-  if (progress < 0.3) {
-    const factor = Math.max(0, (0.3 - progress) / 0.12);
-    bioTranslateY = factor * 20;
-  } else if (progress > 0.42) {
-    const factor = Math.min(1, (progress - 0.42) / 0.1);
-    bioTranslateY = -factor * 30;
-  }
-
-  // Phase 3: Terminal Demo Overlay (progress 0.45 -> 1.00)
-  // 0.45 -> 0.65: Shift up dynamically from bottom (100vh -> 0vh) & fade in
-  // 0.65 -> 1.00: Stay centered & 100% visible for interactive use
-  let terminalOpacity = 0;
-  let terminalTranslateY: string | number = "100vh";
-  if (progress < 0.45) {
-    terminalOpacity = 0;
-    terminalTranslateY = "100vh";
-  } else if (progress >= 0.45 && progress <= 0.65) {
-    terminalOpacity = (progress - 0.45) / 0.2;
-    const factor = Math.max(0, (0.65 - progress) / 0.2);
-    terminalTranslateY = `${factor * 100}vh`;
-  } else {
-    terminalOpacity = 1;
-    terminalTranslateY = "0vh";
-  }
+  // The floating header appears once the ASCII hero has fully dissolved.
+  const headerVisible = progress >= 0.25;
 
   return (
-    <div className="relative min-h-screen w-screen bg-black text-white">
+    <div id="top" className="relative min-h-screen w-screen bg-black text-white">
+      <SiteHeader visible={headerVisible} />
+
+      {/* Page heading for search engines, AI crawlers and screen readers; the hero itself is art. */}
+      <h1 className="sr-only">
+        Kritsada Nhanjeing (Fankrits), mathematician and AI builder in Bangkok
+      </h1>
+      <p className="sr-only">
+        Kritsada Nhanjeing studied mathematics at Thammasat University and works on AI operations,
+        agent orchestration, MCP servers and full-stack web apps. Projects include SomeScript, an AI
+        LaTeX editor; uptodateStock, a bilingual market news site; Zyplus, an open-source markdown
+        editor; SomeMath, a math learning platform; and Memize, a cognitive training app.
+      </p>
+
       {/* Fixed Background Canvas Container */}
-      <div className="fixed inset-0 h-screen w-screen overflow-hidden pointer-events-none z-0">
-        <ShaderGradientCanvas
-          style={{
-            width: "100%",
-            height: "100%",
-          }}
-          lazyLoad={undefined}
-          fov={undefined}
-          pixelDensity={1}
-          pointerEvents="none"
-        >
-          <ShaderGradient
-            animate="on"
-            type="sphere"
-            wireframe={false}
-            shader="defaults"
-            uTime={0}
-            uSpeed={0.3}
-            uStrength={0.3}
-            uDensity={0.8}
-            uFrequency={5.5}
-            uAmplitude={3.2}
-            positionX={-0.1}
-            positionY={0}
-            positionZ={0}
-            rotationX={0}
-            rotationY={130}
-            rotationZ={70}
-            color1="#73bfc4"
-            color2="#ff810a"
-            color3="#8da0ce"
-            reflection={0.4}
-            cAzimuthAngle={270}
-            cPolarAngle={180}
-            cDistance={0.5}
-            cameraZoom={15.1}
-            lightType="env"
-            brightness={0.8}
-            envPreset="city"
-            grain="on"
-            toggleAxis={false}
-            zoomOut={false}
-            hoverState=""
-            enableTransition={false}
-          />
-        </ShaderGradientCanvas>
+      <div
+        className="fixed inset-0 h-screen w-screen overflow-hidden pointer-events-none z-0"
+        style={{
+          // Static stand-in with the shader's palette, shown until WebGL is ready
+          background:
+            "radial-gradient(60% 70% at 25% 30%, #73bfc4 0%, transparent 70%), radial-gradient(55% 65% at 80% 70%, #ff810a 0%, transparent 70%), linear-gradient(135deg, #8da0ce, #73bfc4)",
+        }}
+      >
+        {mounted ? (
+          <div className="size-full animate-in fade-in duration-1000">
+            <Suspense fallback={null}>
+              <ShaderBackground />
+            </Suspense>
+          </div>
+        ) : null}
       </div>
 
       {/* Unified Single Scroll Container (220vh) */}
@@ -173,58 +130,24 @@ function Home() {
               opacity: asciiOpacity,
             }}
           >
-            <pre className="font-mono text-[min(0.38vw,0.7vh)] leading-[min(0.38vw,0.7vh)] text-white whitespace-pre overflow-hidden select-none opacity-90 drop-shadow-[0_0_12px_rgba(255,255,255,0.6)]">
+            <pre
+              aria-hidden="true"
+              className="font-mono text-[min(0.38vw,0.7vh)] leading-[min(0.38vw,0.7vh)] text-white whitespace-pre overflow-hidden select-none opacity-90 drop-shadow-[0_0_12px_rgba(255,255,255,0.6)]"
+            >
               {disintegratingText}
             </pre>
           </div>
-
-          {/* Bio Overlay */}
-          <div
-            className="absolute inset-0 flex items-center justify-center p-6 z-20"
-            style={{
-              opacity: bioOpacity,
-              transform: `translateY(${bioTranslateY}px)`,
-              pointerEvents: bioOpacity > 0.1 ? "auto" : "none",
-            }}
-          >
-            <div className="max-w-3xl w-full text-center text-white space-y-6 font-agave">
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
-                Welcome to My Portfolio
-              </h2>
-              <p className="text-base md:text-xl text-white/90 leading-relaxed font-normal drop-shadow-[0_2px_10px_rgba(0,0,0,0.85)]">
-                Welcome to my website — a space dedicated to showcasing my work and creative
-                journey. Here, you'll find a curated collection of my projects, reflecting my
-                skills, passions, and dedication to my craft. Let yourself explore the different
-                sections and get a sense of who I am as a creator.
-              </p>
-              <div className="pt-4 flex flex-wrap justify-center gap-3 text-xs md:text-sm font-agave text-white/80">
-                <span className="px-3 py-1.5 rounded-lg bg-black/40 backdrop-blur-md border border-white/15 shadow-sm">
-                  Mathematics Graduate
-                </span>
-                <span className="px-3 py-1.5 rounded-lg bg-black/40 backdrop-blur-md border border-white/15 shadow-sm">
-                  AI Builder
-                </span>
-                <span className="px-3 py-1.5 rounded-lg bg-black/40 backdrop-blur-md border border-white/15 shadow-sm">
-                  Product & Systems
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Terminal Section Overlay */}
-          <div
-            id="terminal-section"
-            className="absolute inset-0 flex items-center justify-center p-2 sm:p-4 z-30"
-            style={{
-              opacity: terminalOpacity,
-              transform: `translateY(${terminalTranslateY})`,
-              pointerEvents: terminalOpacity > 0.1 ? "auto" : "none",
-            }}
-          >
-            <TerminalDemo />
-          </div>
         </div>
       </div>
+
+      {/* Page content scrolls over the fixed background */}
+      {/* The hero is done after the first 30vh of scroll, so pull the content up (to just below the hero) over the rest
+          of the pinned container instead of leaving a long empty scroll. */}
+      <main className="relative z-10 mx-auto -mt-[120vh] w-full max-w-6xl px-4 pb-4 sm:px-6">
+        <WorkSection />
+        <AboutSection />
+        <ContactSection />
+      </main>
     </div>
   );
 }

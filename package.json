@@ -6,7 +6,7 @@
     "#/*": "./src/*"
   },
   "scripts": {
-    "dev": "bun --bun vp dev --port 3000",
+    "dev": "bun --bun vp dev --port 3005",
     "generate-routes": "tsr generate",
     "build": "bun --bun vp build",
     "preview": "bun --bun vp preview",
@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@opentui/react": "^0.4.5",
+    "@radix-ui/react-slot": "^1.5.0",
     "@react-spring/three": "^10.1.2",
     "@react-three/fiber": "^9.6.1",
     "@shadergradient/react": "^2.4.20",

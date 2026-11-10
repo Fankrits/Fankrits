@@ -1,0 +1,29 @@
+# Kritsada Nhanjeing (Fankrits)
+
+> Mathematician and AI builder based in Bangkok, Thailand. B.Sc. Mathematics, Thammasat University (2024). Builds AI agents, MCP servers, and full-stack web and desktop products. Also known as Fankrits and กฤษฎา หนานเจียง.
+
+Key facts: works on AI operations, agent orchestration, prompt engineering, LLM benchmarking and custom MCP servers; writes TypeScript, React, Next.js and TanStack Start; research interest in spectral norms of circulant matrices. Open to collaboration on AI operations, agent workflows, MCP servers and mathematical optimisation.
+
+## Projects
+
+- [SomeScript](https://somescript.com): AI-native LaTeX editor whose AI chat reads, searches, edits and compiles the open project, shows each edit as a diff with Undo, and (desktop) works with your own provider key. Web app plus free desktop app for macOS, Windows and Linux. Source: https://github.com/Fankrits/SomeScript
+- [uptodateStock](https://uptodatestock.com): live S&P 500 sector heatmap beside daily market stories in full Thai and English.
+- [Zyplus](https://zyplus.app): open-source (MIT) markdown editor for macOS, Windows and Linux, built with Tauri 2 and React 19. Source: https://github.com/Fankrits/zyplus-editor
+- [SomeMath](https://somemath.com): math learning platform with courses and 27 arcade-style math games, in English and Thai.
+- [Memize](https://memize.somemath.com): offline-ready cognitive training and party-game PWA personalised with Gemini.
+
+## Research
+
+- [Project report, in Thai (PDF, 40 pages)](https://fankrits.com/thesis/report.pdf): study of "Bounds for the spectral norm of circulant matrices with Gaussian Padovan numbers", course MA491, Thammasat University, 2024.
+- [Research poster, in Thai (PDF, 1 page)](https://fankrits.com/thesis/poster.pdf): "On the bounds for Spectral Norm of Some Circulant Matrix Types with the Gaussian Padovan Numbers".
+
+## Contact
+
+- Website: https://fankrits.com
+- Email: contact@fankrits.com
+- GitHub: https://github.com/Fankrits
+
+## Optional
+
+- [Full profile](https://fankrits.com/llms-full.txt)
+- [Sitemap](https://fankrits.com/sitemap.xml)
