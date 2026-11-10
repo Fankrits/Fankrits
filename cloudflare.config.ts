@@ -2,6 +2,7 @@ import { defineConfig } from "cf/config";
 
 // Mirrors the live Worker `fankrits` (checked with `cf workers get fankrits`)
 // so `cf deploy` does not see the remote settings as deletions.
+// workersDev/previewUrls are on so non-main branch builds get a preview URL.
 export default defineConfig({
   worker: {
     name: "fankrits",
@@ -9,8 +10,8 @@ export default defineConfig({
     compatibilityFlags: ["nodejs_compat"],
     entrypoint: "./src/server.ts",
     domains: [{ hostname: "fankrits.com", production: true, previews: false }],
-    workersDev: false,
-    previewUrls: false,
+    workersDev: true,
+    previewUrls: true,
     observability: {
       enabled: false,
       logs: { enabled: true, invocationLogs: true, persist: true },
