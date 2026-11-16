@@ -75,5 +75,8 @@
       "esbuild",
       "lightningcss"
     ]
+  },
+  "patchedDependencies": {
+    "@shadergradient/react@2.4.20": "patches/@shadergradient%2Freact@2.4.20.patch"
   }
 }

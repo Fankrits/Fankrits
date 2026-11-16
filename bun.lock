@@ -51,6 +51,9 @@
       },
     },
   },
+  "patchedDependencies": {
+    "@shadergradient/react@2.4.20": "patches/@shadergradient%2Freact@2.4.20.patch",
+  },
   "overrides": {
     "vite": "npm:@voidzero-dev/vite-plus-core@0.2.5",
     "vitest": "4.1.10",

@@ -32,7 +32,9 @@ function Home() {
         return;
       }
       const currentScroll = -rect.top;
-      const p = Math.min(Math.max(currentScroll / totalScroll, 0), 1);
+      // Nothing reads progress past 0.25 (hero dissolved, header shown), so clamp there: React then
+      // bails out of re-rendering the page on every scroll tick for the rest of the page.
+      const p = Math.min(Math.max(currentScroll / totalScroll, 0), 0.25);
       setProgress(p);
     };
 
