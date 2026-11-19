@@ -49,6 +49,7 @@ function ProjectNavList({
       <li>
         <Link
           to="/projects"
+          activeOptions={{ exact: true }}
           aria-current={currentSlug ? undefined : "page"}
           className={rowClass(!currentSlug)}
         >
