@@ -54,14 +54,7 @@ export const Route = createRootRoute({
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,400&family=Manrope:wght@400;500;600;700&display=swap",
-      },
-      {
-        rel: "preload",
-        href: "/fonts/Agave-Regular.woff2",
-        as: "font",
-        type: "font/woff2",
-        crossOrigin: "anonymous",
+        href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..700;1,14..32,400..700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,500..700;1,400..600&display=swap",
       },
       {
         rel: "stylesheet",
@@ -75,7 +68,7 @@ export const Route = createRootRoute({
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" data-lg-theme="dark">
+    <html lang="en" className="dark">
       <head>
         <HeadContent />
       </head>

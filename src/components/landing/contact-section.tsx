@@ -1,15 +1,15 @@
 import { Github, Mail } from "lucide-react";
-import { GlassButton } from "./deferred-glass";
-import { GlassPanel } from "./deferred-glass";
+import { GlassButton } from "@/components/ui/glasscn/glass-button";
+import { GlassCard } from "@/components/ui/glasscn/glass-card";
 import { PROFILE } from "./data";
 
 export function ContactSection() {
   return (
     <section id="contact" aria-labelledby="contact-title" className="scroll-mt-24 pt-12 md:pt-16">
-      <GlassPanel
-        preset="showcase"
-        elevation="raised"
-        className="!p-6 sm:!p-10 md:!p-14 text-white"
+      <GlassCard
+        glassVariant="liquid-refract"
+        surfaceClassName="border border-white/15 bg-black/25 shadow-[0_24px_60px_rgba(0,0,0,0.4)]"
+        className="p-6 sm:p-10 md:p-14 text-white"
       >
         <p className="font-agave text-[0.8rem] uppercase tracking-[0.2em] text-white/70">Contact</p>
         <h2
@@ -24,20 +24,28 @@ export function ContactSection() {
           work. Send a short note and I&apos;ll reply.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
-          <GlassButton asChild variant="prominent" size="lg">
-            <a href={`mailto:${PROFILE.email}`}>
-              <Mail aria-hidden className="size-4" />
-              {PROFILE.email}
-            </a>
+          <GlassButton
+            nativeButton={false}
+            render={<a href={`mailto:${PROFILE.email}`} />}
+            glassVariant="liquid-refract"
+            size="lg"
+            className="rounded-full bg-white/15 px-5 text-white hover:bg-white/25"
+          >
+            <Mail aria-hidden className="size-4" />
+            {PROFILE.email}
           </GlassButton>
-          <GlassButton asChild variant="soft" size="lg">
-            <a href={PROFILE.github} target="_blank" rel="noreferrer">
-              <Github aria-hidden className="size-4" />
-              {PROFILE.githubHandle}
-            </a>
+          <GlassButton
+            nativeButton={false}
+            render={<a href={PROFILE.github} target="_blank" rel="noreferrer" />}
+            glassVariant="subtle"
+            size="lg"
+            className="rounded-full px-5 text-white/90 hover:bg-white/15 hover:text-white"
+          >
+            <Github aria-hidden className="size-4" />
+            {PROFILE.githubHandle}
           </GlassButton>
         </div>
-      </GlassPanel>
+      </GlassCard>
 
       <footer className="flex flex-wrap items-center justify-between gap-2 py-8 font-agave text-[0.8rem] text-white/90 [text-shadow:0_1px_12px_rgba(0,0,0,0.6)]">
         <span>

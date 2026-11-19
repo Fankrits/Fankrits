@@ -1,5 +1,6 @@
 import { FileText, Presentation } from "lucide-react";
-import { GlassButton, GlassPanel } from "./deferred-glass";
+import { GlassButton } from "@/components/ui/glasscn/glass-button";
+import { GlassCard } from "@/components/ui/glasscn/glass-card";
 import { CAPABILITIES, THESIS } from "./data";
 import { SectionHeading } from "./shared";
 
@@ -17,10 +18,10 @@ export function AboutSection() {
       />
 
       <div className="grid gap-4 md:gap-5 lg:grid-cols-5">
-        <GlassPanel
-          preset="showcase"
-          elevation="raised"
-          className="lg:col-span-3 flex flex-col !p-6 md:!p-10 text-white"
+        <GlassCard
+          glassVariant="liquid-refract"
+          surfaceClassName="lg:col-span-3 border border-white/15 bg-black/25 shadow-[0_24px_60px_rgba(0,0,0,0.4)]"
+          className="flex h-full flex-col p-6 md:p-10 text-white"
         >
           <p className="font-agave text-[0.8rem] uppercase tracking-[0.2em] text-white/70">
             Thesis · {THESIS.degree}
@@ -31,27 +32,37 @@ export function AboutSection() {
           <p className="mt-6 max-w-xl text-base leading-relaxed text-white/85">{THESIS.blurb}</p>
           <div className="mt-8">
             <div className="flex flex-wrap gap-3">
-              <GlassButton asChild variant="prominent">
-                <a
-                  href={THESIS.documents.report.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`${THESIS.documents.report.label} (${THESIS.documents.report.detail}, in Thai)`}
-                >
-                  <FileText aria-hidden className="size-4" />
-                  {THESIS.documents.report.label}
-                </a>
+              <GlassButton
+                nativeButton={false}
+                render={
+                  <a
+                    href={THESIS.documents.report.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${THESIS.documents.report.label} (${THESIS.documents.report.detail}, in Thai)`}
+                  />
+                }
+                glassVariant="liquid-refract"
+                className="rounded-full bg-white/15 px-4 text-white hover:bg-white/25"
+              >
+                <FileText aria-hidden className="size-4" />
+                {THESIS.documents.report.label}
               </GlassButton>
-              <GlassButton asChild variant="soft">
-                <a
-                  href={THESIS.documents.poster.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`${THESIS.documents.poster.label} (${THESIS.documents.poster.detail}, in Thai)`}
-                >
-                  <Presentation aria-hidden className="size-4" />
-                  {THESIS.documents.poster.label}
-                </a>
+              <GlassButton
+                nativeButton={false}
+                render={
+                  <a
+                    href={THESIS.documents.poster.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${THESIS.documents.poster.label} (${THESIS.documents.poster.detail}, in Thai)`}
+                  />
+                }
+                glassVariant="subtle"
+                className="rounded-full px-4 text-white/90 hover:bg-white/15 hover:text-white"
+              >
+                <Presentation aria-hidden className="size-4" />
+                {THESIS.documents.poster.label}
               </GlassButton>
             </div>
             <p className="mt-3 font-agave text-[0.8rem] text-white/70">
@@ -64,9 +75,13 @@ export function AboutSection() {
             <br />
             {THESIS.department}
           </p>
-        </GlassPanel>
+        </GlassCard>
 
-        <GlassPanel className="lg:col-span-2 !p-6 md:!p-8 text-white">
+        <GlassCard
+          glassVariant="liquid-refract"
+          surfaceClassName="lg:col-span-2 border border-white/15 bg-black/25 shadow-[0_24px_60px_rgba(0,0,0,0.4)]"
+          className="h-full p-6 md:p-8 text-white"
+        >
           <h3 className="font-agave text-[0.8rem] uppercase tracking-[0.2em] text-white/70">
             What I work with
           </h3>
@@ -78,7 +93,7 @@ export function AboutSection() {
               </div>
             ))}
           </dl>
-        </GlassPanel>
+        </GlassCard>
       </div>
     </section>
   );

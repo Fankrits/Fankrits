@@ -20,6 +20,7 @@
   },
   "registries": {
     "@aceternity": "https://ui.aceternity.com/registry/{name}.json",
-    "@termcn": "https://termcn.vercel.app/r/{name}.json"
+    "@termcn": "https://termcn.vercel.app/r/{name}.json",
+    "@glasscn": "https://glasscn-components.vercel.app/r/{name}.json"
   }
 }

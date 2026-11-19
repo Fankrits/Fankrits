@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { ArrowUpRight, Download, Github } from "lucide-react";
-import { GlassButton } from "./deferred-glass";
+import { GlassButton } from "@/components/ui/glasscn/glass-button";
 
 export function SectionHeading({
   id,
@@ -43,42 +43,60 @@ export function ProjectLinks({
   return (
     <div className="flex flex-wrap gap-2">
       {live ? (
-        <GlassButton asChild variant="prominent" size="sm">
-          <a
-            href={live.href}
-            target="_blank"
-            rel="noreferrer"
-            aria-label={`${name}: ${live.label}`}
-          >
-            {live.label}
-            <ArrowUpRight aria-hidden className="size-4" />
-          </a>
+        <GlassButton
+          nativeButton={false}
+          render={
+            <a
+              href={live.href}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`${name}: ${live.label}`}
+            />
+          }
+          glassVariant="liquid-refract"
+          size="sm"
+          className="rounded-full bg-white/15 px-3 text-white hover:bg-white/25"
+        >
+          {live.label}
+          <ArrowUpRight aria-hidden className="size-4" />
         </GlassButton>
       ) : null}
       {extra ? (
-        <GlassButton asChild variant="soft" size="sm">
-          <a
-            href={extra.href}
-            target="_blank"
-            rel="noreferrer"
-            aria-label={`${name}: ${extra.label}`}
-          >
-            <Download aria-hidden className="size-4" />
-            {extra.label}
-          </a>
+        <GlassButton
+          nativeButton={false}
+          render={
+            <a
+              href={extra.href}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`${name}: ${extra.label}`}
+            />
+          }
+          glassVariant="subtle"
+          size="sm"
+          className="rounded-full px-3 text-white/90 hover:bg-white/15 hover:text-white"
+        >
+          <Download aria-hidden className="size-4" />
+          {extra.label}
         </GlassButton>
       ) : null}
       {repo ? (
-        <GlassButton asChild variant="soft" size="sm">
-          <a
-            href={repo.href}
-            target="_blank"
-            rel="noreferrer"
-            aria-label={`${name} source code on GitHub`}
-          >
-            <Github aria-hidden className="size-4" />
-            {repo.label}
-          </a>
+        <GlassButton
+          nativeButton={false}
+          render={
+            <a
+              href={repo.href}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`${name} source code on GitHub`}
+            />
+          }
+          glassVariant="subtle"
+          size="sm"
+          className="rounded-full px-3 text-white/90 hover:bg-white/15 hover:text-white"
+        >
+          <Github aria-hidden className="size-4" />
+          {repo.label}
         </GlassButton>
       ) : null}
     </div>

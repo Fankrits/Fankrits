@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Mail } from "lucide-react";
-import { GlassHeader } from "@/components/glassyui/glass-header";
-import { GlassButton } from "./deferred-glass";
+import { GlassButton } from "@/components/ui/glasscn/glass-button";
+import { LiquidGlass } from "@/components/ui/glasscn/liquid-glass";
 import { PROFILE } from "./data";
 
 /**
@@ -28,24 +28,25 @@ export function SiteHeader({ visible }: { visible: boolean }) {
       inert={!visible}
     >
       {shown ? (
-        <GlassHeader
-          position="static"
-          navigationLabel="Primary"
-          className="pointer-events-auto mx-auto h-[60px] max-w-[880px] [--lg-header-tint:rgb(20_20_22/0.55)]"
-          brand={
-            <a href="#top" className="font-agave text-lg font-bold tracking-tight text-white">
-              {PROFILE.handle}
-            </a>
-          }
-          actions={
-            <GlassButton asChild variant="prominent" size="sm">
-              <a href={`mailto:${PROFILE.email}`}>
+        <LiquidGlass className="pointer-events-auto mx-auto h-[60px] max-w-[880px] rounded-full border border-white/15 bg-zinc-950/55 shadow-[0_12px_40px_rgba(0,0,0,0.45)]">
+          <header className="flex size-full items-center justify-between px-5">
+            <nav aria-label="Primary" className="flex w-full items-center justify-between gap-4">
+              <a href="#top" className="font-agave text-lg font-bold tracking-tight text-white">
+                {PROFILE.handle}
+              </a>
+              <GlassButton
+                nativeButton={false}
+                render={<a href={`mailto:${PROFILE.email}`} />}
+                glassVariant="liquid-refract"
+                size="sm"
+                className="rounded-full bg-white/15 px-3 text-white hover:bg-white/25"
+              >
                 <Mail aria-hidden className="size-4" />
                 Email
-              </a>
-            </GlassButton>
-          }
-        ></GlassHeader>
+              </GlassButton>
+            </nav>
+          </header>
+        </LiquidGlass>
       ) : null}
     </div>
   );

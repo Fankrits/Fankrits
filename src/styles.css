@@ -133,9 +133,10 @@
 }
 
 @theme inline {
-  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Fraunces", Georgia, serif;
-  --font-agave: "Agave Nerd Font", "Agave", monospace;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-agave: "JetBrains Mono", "Agave Nerd Font", ui-monospace, monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -172,6 +173,26 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  @keyframes liquid-drift {
+    0% {
+      background-position:
+        0% 0%,
+        100% 100%,
+        0% 0%;
+    }
+    50% {
+      background-position:
+        30% 20%,
+        70% 80%,
+        0% 0%;
+    }
+    100% {
+      background-position:
+        0% 0%,
+        100% 100%,
+        0% 0%;
+    }
+  }
 }
 
 html,
@@ -264,7 +285,7 @@ body::after {
 }
 
 .display-title {
-  font-family: "Fraunces", Georgia, serif;
+  font-family: var(--font-display);
 }
 
 .island-shell {
@@ -391,21 +412,4 @@ body::after {
     font-size: inherit;
     color: inherit;
   }
-}
-
-/* Current-section marker in the glass header: the library only changes the link colour. */
-.lg-header-desktop a {
-  position: relative;
-}
-
-.lg-header-desktop a[aria-current="page"]::after {
-  content: "";
-  position: absolute;
-  bottom: 4px;
-  left: 50%;
-  width: 4px;
-  height: 4px;
-  border-radius: 9999px;
-  background: currentColor;
-  translate: -50% 0;
 }

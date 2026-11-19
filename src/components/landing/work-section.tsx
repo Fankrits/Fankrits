@@ -1,4 +1,4 @@
-import { GlassPanel } from "./deferred-glass";
+import { GlassCard } from "@/components/ui/glasscn/glass-card";
 import { ChatDemo } from "./chat-demo";
 import { FLAGSHIP, PROJECTS } from "./data";
 import { Chips, ProjectLinks, SectionHeading } from "./shared";
@@ -21,10 +21,10 @@ export function WorkSection() {
 
       <div className="grid gap-4 md:gap-5">
         {/* Flagship */}
-        <GlassPanel
-          preset="showcase"
-          elevation="raised"
-          className="!p-6 md:!p-8 text-white"
+        <GlassCard
+          glassVariant="liquid-refract"
+          surfaceClassName="border border-white/15 bg-black/25 shadow-[0_24px_60px_rgba(0,0,0,0.4)]"
+          className="p-6 md:p-8 text-white"
           aria-labelledby="somescript-title"
         >
           <div className="grid items-center gap-8 lg:grid-cols-5 lg:gap-10">
@@ -68,16 +68,16 @@ export function WorkSection() {
               <ChatDemo />
             </div>
           </div>
-        </GlassPanel>
+        </GlassCard>
 
         {/* Supporting projects */}
         <ul className="grid gap-4 md:gap-5 md:grid-cols-2">
           {PROJECTS.map((project) => (
             <li key={project.name} className="flex">
-              <GlassPanel
-                variant="card"
-                interactive
-                className="flex w-full flex-col !p-6 text-white"
+              <GlassCard
+                glassVariant="liquid-refract"
+                surfaceClassName="w-full border border-white/15 bg-black/25 transition-transform duration-200 hover:-translate-y-0.5"
+                className="flex h-full w-full flex-col p-6 text-white"
                 aria-labelledby={`${project.name}-title`}
               >
                 <p className="font-agave text-[0.8rem] uppercase tracking-[0.18em] text-white/70">
@@ -98,7 +98,7 @@ export function WorkSection() {
                 <div className="mt-6 pt-1 md:mt-auto md:pt-6">
                   <ProjectLinks name={project.name} live={project.live} repo={project.repo} />
                 </div>
-              </GlassPanel>
+              </GlassCard>
             </li>
           ))}
         </ul>
