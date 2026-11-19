@@ -10,11 +10,6 @@ export const somescript: ProjectDoc = {
   links: [
     { label: "somescript.com", href: "https://somescript.com" },
     { label: "Documentation", href: "https://docs.somescript.com" },
-    {
-      label: "Desktop app",
-      href: "https://github.com/Fankrits/SomeScript/releases/latest",
-    },
-    { label: "Source", href: "https://github.com/Fankrits/SomeScript" },
   ],
   stack: [
     "Next.js 16",
@@ -38,7 +33,7 @@ export const somescript: ProjectDoc = {
       value: "PostgreSQL (Drizzle ORM), Redis, S3 buckets; plain local folders on Desktop",
     },
     { label: "Hosting", value: "Vercel (web, docs) and Railway (editor, compiler, collaboration)" },
-    { label: "License", value: "All rights reserved (public repository)" },
+    { label: "License", value: "All rights reserved (private repository)" },
   ],
   hero: {
     src: "/projects/somescript/01-landing.webp",
@@ -204,7 +199,7 @@ export const somescript: ProjectDoc = {
       blocks: [
         {
           type: "p",
-          text: "Use the hosted cloud editor at `somescript.com` (free tier includes 10 projects, unlimited compiles, realtime collaboration, and 300 monthly Lite AI credits), or install **SomeScript Desktop** with one of the checksum-verified commands below. Stand-alone installers (`.dmg`, `.exe`, `.AppImage`, `.deb`, `.rpm`) are published on GitHub Releases.",
+          text: "Use the hosted cloud editor at `somescript.com` (free tier includes 10 projects, unlimited compiles, realtime collaboration, and 300 monthly Lite AI credits), or install **SomeScript Desktop** from the download section on the same site, which lists installers for macOS, Windows and Linux.",
         },
         {
           type: "image",
@@ -212,29 +207,10 @@ export const somescript: ProjectDoc = {
             src: "/projects/somescript/02-desktop-install.webp",
             alt: "SomeScript Desktop download section showing macOS, Windows, and Linux installer tabs with Homebrew cask and shell install commands",
             caption:
-              "Desktop download section on somescript.com with platform tabs, Homebrew cask, and checksum-verified CLI installer commands.",
+              "Desktop download section on somescript.com with platform tabs and installer commands.",
             width: 1440,
             height: 900,
           },
-        },
-        {
-          type: "code",
-          lang: "sh",
-          title: "Install SomeScript Desktop",
-          code: `# macOS (Homebrew cask)
-brew tap Fankrits/somescript https://github.com/Fankrits/SomeScript && brew trust Fankrits/somescript && brew install --cask somescript
-
-# macOS or Linux (verifies SHA-256 against SHA256SUMS.txt)
-curl -fsSL https://github.com/Fankrits/SomeScript/releases/latest/download/install.sh | sh
-
-# Windows (PowerShell, verifies SHA-256 against SHA256SUMS.txt)
-irm https://github.com/Fankrits/SomeScript/releases/latest/download/install.ps1 | iex`,
-        },
-        {
-          type: "callout",
-          tone: "tip",
-          title: "Developing locally",
-          text: "Clone `github.com/Fankrits/SomeScript`, run `bun install`, then `cd apps/tauri && bun run desktop:sidecars && bun run tauri dev` for the desktop app (no accounts or env vars required), or `docker compose up -d && bun dev` for the cloud stack.",
         },
       ],
     },
