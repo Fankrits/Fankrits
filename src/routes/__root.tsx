@@ -63,9 +63,6 @@ export const Route = createRootRoute({
         type: "font/woff2",
         crossOrigin: "anonymous",
       },
-      { rel: "preload", href: "/hdr/city.hdr", as: "fetch", crossOrigin: "anonymous" },
-      { rel: "preload", href: "/hdr/dawn.hdr", as: "fetch", crossOrigin: "anonymous" },
-      { rel: "preload", href: "/hdr/lobby.hdr", as: "fetch", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
         href: appCss,

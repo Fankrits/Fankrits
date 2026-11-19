@@ -6,11 +6,11 @@ import { WorkSection } from "@/components/landing/work-section";
 import { AboutSection } from "@/components/landing/about-section";
 import { ContactSection } from "@/components/landing/contact-section";
 
-const loadShaderBackground = () => import("@/components/landing/shader-background");
-const ShaderBackground = lazy(loadShaderBackground);
+const loadDitherBurn = () => import("@/components/originkit/ui/dither-burn");
+const DitherBurn = lazy(loadDitherBurn);
 
 // Start fetching the WebGL chunk as soon as the route module runs, in parallel with hydration.
-if (typeof window !== "undefined") void loadShaderBackground();
+if (typeof window !== "undefined") void loadDitherBurn();
 
 export const Route = createFileRoute("/")({ component: Home });
 
@@ -106,16 +106,23 @@ function Home() {
       {/* Fixed Background Canvas Container */}
       <div
         className="fixed inset-0 h-screen w-screen overflow-hidden pointer-events-none z-0"
-        style={{
-          // Static stand-in with the shader's palette, shown until WebGL is ready
-          background:
-            "radial-gradient(60% 70% at 25% 30%, #73bfc4 0%, transparent 70%), radial-gradient(55% 65% at 80% 70%, #ff810a 0%, transparent 70%), linear-gradient(135deg, #8da0ce, #73bfc4)",
-        }}
+        style={{ background: "#08070B" }}
       >
         {mounted ? (
           <div className="size-full animate-in fade-in duration-1000">
             <Suspense fallback={null}>
-              <ShaderBackground />
+              <DitherBurn
+                background="#08070B"
+                color1="#E65923"
+                color2="#FF7E3D"
+                speed={27}
+                size={148}
+                angle={56}
+                pixelSize={2}
+                hover={58}
+                reach={200}
+                style={{ minWidth: 0, minHeight: 0, width: "100%", height: "100%" }}
+              />
             </Suspense>
           </div>
         ) : null}
