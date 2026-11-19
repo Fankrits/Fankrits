@@ -1,6 +1,4 @@
 import type { ReactNode } from "react";
-import { ArrowUpRight, Download, Github } from "lucide-react";
-import { GlassButton } from "@/components/ui/glasscn/glass-button";
 
 export function SectionHeading({
   id,
@@ -26,92 +24,5 @@ export function SectionHeading({
         <p className="mt-4 text-base md:text-lg leading-relaxed text-white/85">{children}</p>
       ) : null}
     </header>
-  );
-}
-
-export function ProjectLinks({
-  name,
-  live,
-  repo,
-  extra,
-}: {
-  name: string;
-  extra?: { href: string; label: string };
-  live?: { href: string; label: string };
-  repo?: { href: string; label: string };
-}) {
-  return (
-    <div className="flex flex-wrap gap-2">
-      {live ? (
-        <GlassButton
-          nativeButton={false}
-          render={
-            <a
-              href={live.href}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={`${name}: ${live.label}`}
-            />
-          }
-          glassVariant="liquid-refract"
-          size="sm"
-          className="rounded-full bg-white/15 px-3 text-white hover:bg-white/25"
-        >
-          {live.label}
-          <ArrowUpRight aria-hidden className="size-4" />
-        </GlassButton>
-      ) : null}
-      {extra ? (
-        <GlassButton
-          nativeButton={false}
-          render={
-            <a
-              href={extra.href}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={`${name}: ${extra.label}`}
-            />
-          }
-          glassVariant="subtle"
-          size="sm"
-          className="rounded-full px-3 text-white/90 hover:bg-white/15 hover:text-white"
-        >
-          <Download aria-hidden className="size-4" />
-          {extra.label}
-        </GlassButton>
-      ) : null}
-      {repo ? (
-        <GlassButton
-          nativeButton={false}
-          render={
-            <a
-              href={repo.href}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={`${name} source code on GitHub`}
-            />
-          }
-          glassVariant="subtle"
-          size="sm"
-          className="rounded-full px-3 text-white/90 hover:bg-white/15 hover:text-white"
-        >
-          <Github aria-hidden className="size-4" />
-          {repo.label}
-        </GlassButton>
-      ) : null}
-    </div>
-  );
-}
-
-/** Mono chip row used for stacks and tool lists. */
-export function Chips({ items }: { items: readonly string[] }) {
-  return (
-    <ul className="flex flex-wrap gap-x-3 gap-y-1 font-agave text-[0.8rem] text-white/75">
-      {items.map((item) => (
-        <li key={item} className="whitespace-nowrap">
-          {item}
-        </li>
-      ))}
-    </ul>
   );
 }

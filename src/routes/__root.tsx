@@ -41,7 +41,6 @@ export const Route = createRootRoute({
       { name: "twitter:image:alt", content: SITE.imageAlt },
     ],
     links: [
-      { rel: "canonical", href: SITE.url },
       { rel: "me", href: "https://github.com/Fankrits" },
       { rel: "manifest", href: "/manifest.json" },
       { rel: "sitemap", type: "application/xml", href: "/sitemap.xml" },

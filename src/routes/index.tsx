@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { asciiArt } from "../asciiArt";
-import { SiteHeader } from "@/components/landing/site-header";
+import { SITE } from "@/lib/seo";
 import { WorkSection } from "@/components/landing/work-section";
 import { AboutSection } from "@/components/landing/about-section";
 import { ContactSection } from "@/components/landing/contact-section";
@@ -12,7 +12,10 @@ const DitherBurn = lazy(loadDitherBurn);
 // Start fetching the WebGL chunk as soon as the route module runs, in parallel with hydration.
 if (typeof window !== "undefined") void loadDitherBurn();
 
-export const Route = createFileRoute("/")({ component: Home });
+export const Route = createFileRoute("/")({
+  head: () => ({ links: [{ rel: "canonical", href: SITE.url }] }),
+  component: Home,
+});
 
 function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -32,7 +35,7 @@ function Home() {
         return;
       }
       const currentScroll = -rect.top;
-      // Nothing reads progress past 0.25 (hero dissolved, header shown), so clamp there: React then
+      // Nothing reads progress past 0.25 (hero dissolved), so clamp there: React then
       // bails out of re-rendering the page on every scroll tick for the rest of the page.
       const p = Math.min(Math.max(currentScroll / totalScroll, 0), 0.25);
       setProgress(p);
@@ -85,13 +88,8 @@ function Home() {
     asciiOpacity = Math.max(0, 1 - (progress - 0.2) / 0.05);
   }
 
-  // The floating header appears once the ASCII hero has fully dissolved.
-  const headerVisible = progress >= 0.25;
-
   return (
     <div id="top" className="relative min-h-screen w-screen bg-black text-white">
-      <SiteHeader visible={headerVisible} />
-
       {/* Page heading for search engines, AI crawlers and screen readers; the hero itself is art. */}
       <h1 className="sr-only">
         Kritsada Nhanjeing (Fankrits), mathematician and AI builder in Bangkok
