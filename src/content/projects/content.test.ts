@@ -63,4 +63,12 @@ describe("project docs content", () => {
     expect(doc?.links).toEqual([]);
     expect(JSON.stringify(doc)).not.toMatch(/workers\.dev|vercel\.app|https?:\/\//i);
   });
+
+  it("describes Zyplus as the native GPUI app, not the old Tauri build", () => {
+    const doc = PROJECT_DOCS.find((d) => d.slug === "zyplus");
+    expect(doc?.stack).toContain("GPUI 0.2");
+    expect(doc?.kicker).toMatch(/cross-platform/i);
+    expect(doc?.stack.join(" ")).not.toMatch(/tauri|react|milkdown|codemirror/i);
+    expect(doc?.links.some((link) => /zyplus\.app/.test(link.href))).toBe(false);
+  });
 });
