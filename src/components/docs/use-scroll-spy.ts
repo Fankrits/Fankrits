@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { ProjectDoc } from "@/content/projects/types";
 
-export interface ScrollSpyState {
+interface ScrollSpyState {
   activeId: string;
   activeProjectSlug: string;
   navigateTo: (id: string) => void;

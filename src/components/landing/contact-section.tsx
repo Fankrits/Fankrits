@@ -1,4 +1,5 @@
-import { Github, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
+import { GithubIcon } from "@/components/ui/github-icon";
 import { GlassButton } from "@/components/ui/glasscn/glass-button";
 import { GlassCard } from "@/components/ui/glasscn/glass-card";
 import { PROFILE } from "./data";
@@ -41,7 +42,7 @@ export function ContactSection() {
             size="lg"
             className="rounded-full px-5 text-white/90 hover:bg-white/15 hover:text-white"
           >
-            <Github aria-hidden className="size-4" />
+            <GithubIcon aria-hidden className="size-4" />
             {PROFILE.githubHandle}
           </GlassButton>
         </div>

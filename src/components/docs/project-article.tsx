@@ -1,5 +1,6 @@
 import type { MouseEvent } from "react";
-import { ArrowUpRight, Download, Github } from "lucide-react";
+import { ArrowUpRight, Download } from "lucide-react";
+import { GithubIcon } from "@/components/ui/github-icon";
 import { GlassCard } from "@/components/ui/glasscn/glass-card";
 import { GlassButton } from "@/components/ui/glasscn/glass-button";
 import type { ProjectDoc } from "@/content/projects/types";
@@ -113,7 +114,7 @@ export function ProjectArticle({
                       : "rounded-full px-3.5 text-zinc-100 no-underline hover:bg-white/15 hover:text-white focus-visible:ring-2 focus-visible:ring-[#FF7E3D]/80"
                   }
                 >
-                  {kind === "github" ? <Github aria-hidden className="size-3.5" /> : null}
+                  {kind === "github" ? <GithubIcon aria-hidden className="size-3.5" /> : null}
                   {kind === "download" ? <Download aria-hidden className="size-3.5" /> : null}
                   <span>{link.label}</span>
                   {kind === "external" ? <ArrowUpRight aria-hidden className="size-3.5" /> : null}

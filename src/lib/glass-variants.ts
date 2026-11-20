@@ -1,8 +1,6 @@
 export type FrostGlassVariant = "clear" | "frosted" | "subtle" | "liquid" | "liquid-refract";
 export type FrostGlassVariantProp = { glassVariant?: FrostGlassVariant };
 
-export const liquidRefractStyles = "bg-transparent border-0 shadow-none";
-
 export const glassVariantStyles: Record<FrostGlassVariant, string> = {
   clear: [
     "backdrop-blur-[2px] backdrop-saturate-[1.9]",
