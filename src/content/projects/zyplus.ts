@@ -6,7 +6,6 @@ export const zyplus: ProjectDoc = {
   kicker: "Native cross-platform markdown editor",
   summary:
     "A cross-platform markdown editor for macOS, Windows and Linux, written in Rust on GPUI with no webview and no JavaScript runtime. Write in rendered rich text or raw source, one keystroke apart, on plain .md files in your own folders.",
-  status: "Beta",
   windowLabel: "Zyplus (native app)",
   links: [
     { label: "GitHub", href: "https://github.com/Fankrits/zyplus-editor" },
@@ -76,7 +75,7 @@ export const zyplus: ProjectDoc = {
         {
           type: "callout",
           tone: "note",
-          title: "Beta, available on three platforms",
+          title: "Available on three platforms",
           text: "The 0.5 line is in beta. macOS is the primary target: it is the only one with an in-app updater, and the app is not notarized yet, so the first launch needs a right-click and Open. Windows and Linux installers are published too and are labelled experimental: CI builds them, runs the unit tests and launches them, but Windows has no end to end tests and neither platform has been clicked through on every desktop environment.",
         },
       ],

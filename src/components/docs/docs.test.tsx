@@ -21,7 +21,6 @@ const SAMPLE_DOC: ProjectDoc = {
   name: "SampleDoc",
   kicker: "Documentation fixture",
   summary: "A synthetic fixture verifying all documentation blocks and metadata rendering.",
-  status: "Open source",
   links: [
     { label: "sample.example", href: "https://sample.example" },
     { label: "Source", href: "https://github.com/Fankrits/sample" },
@@ -150,7 +149,6 @@ describe("DocBlocks & ProjectArticle", () => {
 
     expect(screen.getByText("At a glance")).toBeTruthy();
     expect(screen.getByText("Web & Desktop")).toBeTruthy();
-    expect(screen.getByText("Open source")).toBeTruthy();
     expect(screen.getByText("TanStack Start")).toBeTruthy();
   });
 });

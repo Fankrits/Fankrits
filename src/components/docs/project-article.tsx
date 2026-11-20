@@ -3,27 +3,7 @@ import { ArrowUpRight, Download, Github } from "lucide-react";
 import { GlassCard } from "@/components/ui/glasscn/glass-card";
 import { GlassButton } from "@/components/ui/glasscn/glass-button";
 import type { ProjectDoc } from "@/content/projects/types";
-import { cn } from "@/lib/utils";
 import { DocBlocks } from "./doc-blocks";
-
-const STATUS_STYLES: Record<ProjectDoc["status"], { dot: string; badge: string }> = {
-  Live: {
-    dot: "bg-emerald-400",
-    badge: "border-emerald-400/25 bg-emerald-400/10 text-emerald-200",
-  },
-  "Open source": {
-    dot: "bg-sky-400",
-    badge: "border-sky-400/25 bg-sky-400/10 text-sky-200",
-  },
-  Internal: {
-    dot: "bg-zinc-300",
-    badge: "border-white/20 bg-white/[0.07] text-zinc-200",
-  },
-  Beta: {
-    dot: "bg-[#FF7E3D]",
-    badge: "border-[#FF7E3D]/30 bg-[#E65923]/15 text-orange-200",
-  },
-};
 
 function getLinkKind(link: { label: string; href: string }): "github" | "download" | "external" {
   const hrefLower = link.href.toLowerCase();
@@ -65,7 +45,6 @@ export function ProjectArticle({
   project: ProjectDoc;
   onNavigate: (id: string) => void;
 }) {
-  const statusStyle = STATUS_STYLES[project.status];
   const windowLabel = getWindowLabel(project);
 
   const handleAnchorClick = (event: MouseEvent<HTMLAnchorElement>, id: string) => {
@@ -83,21 +62,9 @@ export function ProjectArticle({
       className="scroll-mt-20 lg:scroll-mt-10"
     >
       <header data-spy-id={project.slug}>
-        {/* Eyebrow: kicker + status */}
-        <div className="flex flex-wrap items-center gap-2.5">
-          <p className="font-agave text-xs uppercase tracking-[0.18em] text-zinc-300">
-            {project.kicker}
-          </p>
-          <span
-            className={cn(
-              "inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 font-agave text-[0.7rem] font-medium",
-              statusStyle.badge,
-            )}
-          >
-            <span aria-hidden className={cn("size-1.5 rounded-full", statusStyle.dot)} />
-            {project.status}
-          </span>
-        </div>
+        <p className="font-agave text-xs uppercase tracking-[0.18em] text-zinc-300">
+          {project.kicker}
+        </p>
 
         {/* Project Name (H2 under sr-only page H1) */}
         <h2

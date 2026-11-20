@@ -6,7 +6,6 @@ export const somescript: ProjectDoc = {
   kicker: "AI-native LaTeX editor",
   summary:
     "A chat agent that works inside your LaTeX project to read, edit, fix, and recompile files, showing every change as a diff you can undo. Runs in the browser with realtime collaboration or locally as a free desktop app with bring-your-own-model AI.",
-  status: "Live",
   links: [
     { label: "somescript.com", href: "https://somescript.com" },
     { label: "Documentation", href: "https://docs.somescript.com" },
@@ -25,7 +24,6 @@ export const somescript: ProjectDoc = {
   ],
   facts: [
     { label: "Platform", value: "Web, macOS (Universal), Windows (x64), Linux (x64)" },
-    { label: "Status", value: "Live (Cloud and Desktop releases)" },
     { label: "LaTeX engine", value: "Tectonic and official SyncTeX CLI" },
     { label: "Auth and billing", value: "Clerk and Stripe on Cloud; none on Desktop" },
     {

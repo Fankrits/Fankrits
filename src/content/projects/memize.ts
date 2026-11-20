@@ -6,7 +6,6 @@ export const memize: ProjectDoc = {
   kicker: "Cognitive training & party games",
   summary:
     "An offline-ready PWA for cognitive training and social party games. AI-generated prompts adapt to each player's cognitive profile and per-game Elo rating, with Supabase cloud sync and shared organization leaderboards.",
-  status: "Live",
   links: [{ label: "memize.somemath.com", href: "https://memize.somemath.com" }],
   stack: [
     "Next.js 16",
@@ -18,7 +17,6 @@ export const memize: ProjectDoc = {
   ],
   facts: [
     { label: "Platform", value: "Web PWA (mobile and desktop)" },
-    { label: "Status", value: "Live" },
     { label: "Auth", value: "Guest local play; optional Supabase account" },
     { label: "Database", value: "Supabase PostgreSQL with RLS and Realtime" },
     { label: "AI pipeline", value: "OpenRouter with Gemini 2.5 Flash fallback" },

@@ -6,7 +6,6 @@ export const somemath: ProjectDoc = {
   kicker: "Math learning platform",
   summary:
     "Courses and 27 arcade-style math games that teach understanding before speed. English and Thai, KaTeX formulas, CMS-managed content and PDF certificates.",
-  status: "Live",
   links: [
     { label: "Visit site", href: "https://somemath.com" },
     { label: "Learning Space", href: "https://space.somemath.com" },
@@ -14,7 +13,6 @@ export const somemath: ProjectDoc = {
   stack: ["Next.js 16", "Sanity", "Clerk", "Stripe", "TanStack Start", "KaTeX", "Intlayer"],
   facts: [
     { label: "Platform", value: "Web (somemath.com, space.somemath.com)" },
-    { label: "Status", value: "Live" },
     { label: "Languages", value: "English, Thai" },
     { label: "Games", value: "27 interactive math games" },
     { label: "Auth", value: "Clerk" },

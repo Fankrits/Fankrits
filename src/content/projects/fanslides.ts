@@ -11,7 +11,6 @@ export const fanslides: ProjectDoc = {
   kicker: "Thai news-deck studio",
   summary:
     "A private tool that turns one AI or tech news story into a short Thai slide deck for social posts: a cover, a few question-and-answer slides and a US stock chart. An editor, a PNG exporter and an MCP server let a model draft the deck while the server enforces the house style.",
-  status: "Internal",
   windowLabel: "Internal tool",
   links: [],
   stack: [

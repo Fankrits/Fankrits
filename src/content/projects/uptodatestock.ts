@@ -6,7 +6,6 @@ export const uptodatestock: ProjectDoc = {
   kicker: "Bilingual market news",
   summary:
     "A live S&P 500 sector heatmap beside daily market stories in full Thai and English. An AI schedule publishes each article through an authenticated MCP endpoint, linked to the tickers it affects.",
-  status: "Live",
   links: [{ label: "uptodatestock.com", href: "https://uptodatestock.com" }],
   stack: [
     "TanStack Start",
@@ -20,7 +19,6 @@ export const uptodatestock: ProjectDoc = {
   ],
   facts: [
     { label: "Platform", value: "Web (desktop and mobile)" },
-    { label: "Status", value: "Live" },
     { label: "Languages", value: "English (/en) and Thai (/th)" },
     { label: "Data layer", value: "Neon Postgres, Drizzle ORM, Finnhub quotes" },
     { label: "Auth", value: "Better Auth (OAuth 2.1 + JWKS for MCP, single-admin account)" },

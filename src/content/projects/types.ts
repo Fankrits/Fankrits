@@ -33,7 +33,6 @@ export interface ProjectDoc {
   kicker: string;
   /** One or two sentences, plain text. */
   summary: string;
-  status: "Live" | "Open source" | "Beta" | "Internal";
   links: { label: string; href: string }[];
   stack: string[];
   /** Key/value facts shown in an "at a glance" table (platform, license, auth, ...). */

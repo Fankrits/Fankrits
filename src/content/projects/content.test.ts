@@ -59,7 +59,6 @@ describe("project docs content", () => {
   it("keeps the internal Fanslides tool free of any deployed hostname or link", () => {
     const doc = PROJECT_DOCS.find((d) => d.slug === "fanslides");
     expect(doc).toBeDefined();
-    expect(doc?.status).toBe("Internal");
     expect(doc?.links).toEqual([]);
     expect(JSON.stringify(doc)).not.toMatch(/workers\.dev|vercel\.app|https?:\/\//i);
   });
