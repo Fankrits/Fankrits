@@ -97,8 +97,9 @@ function Home() {
       <p className="sr-only">
         Kritsada Nhanjeing studied mathematics at Thammasat University and works on AI operations,
         agent orchestration, MCP servers and full-stack web apps. Projects include SomeScript, an AI
-        LaTeX editor; uptodateStock, a bilingual market news site; Zyplus, an open-source markdown
-        editor; SomeMath, a math learning platform; and Memize, a cognitive training app.
+        LaTeX editor; uptodateStock, a bilingual market news site; Zyplus, a native cross-platform
+        open-source markdown editor; SomeMath, a math learning platform; and Memize, a cognitive
+        training app.
       </p>
 
       {/* Fixed Background Canvas Container */}

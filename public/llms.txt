@@ -8,7 +8,7 @@ Key facts: works on AI operations, agent orchestration, prompt engineering, LLM 
 
 - [SomeScript](https://somescript.com): AI-native LaTeX editor whose AI chat reads, searches, edits and compiles the open project, shows each edit as a diff with Undo, and (desktop) works with your own provider key. Web app plus free desktop app for macOS, Windows and Linux.
 - [uptodateStock](https://uptodatestock.com): live S&P 500 sector heatmap beside daily market stories in full Thai and English.
-- [Zyplus](https://zyplus.app): open-source (MIT) markdown editor for macOS, Windows and Linux, built with Tauri 2 and React 19. Source: https://github.com/Fankrits/zyplus-editor
+- [Zyplus](https://github.com/Fankrits/zyplus-editor): native cross-platform open-source (MIT) markdown editor written in Rust with GPUI, no webview. Downloads for macOS (Apple Silicon), Windows (x64) and Linux (x86_64 .deb and AppImage); Windows and Linux builds are experimental.
 - [SomeMath](https://somemath.com): math learning platform with courses and 27 arcade-style math games, in English and Thai.
 - [Memize](https://memize.somemath.com): offline-ready cognitive training and party-game PWA personalised with Gemini.
 - [Project documentation](https://fankrits.com/projects): overview, features, architecture and screenshots for each project above.

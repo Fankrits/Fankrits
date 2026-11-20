@@ -124,9 +124,9 @@ export function buildJsonLd() {
       {
         "@type": "SoftwareApplication",
         name: "Zyplus",
-        url: "https://zyplus.app",
+        url: "https://github.com/Fankrits/zyplus-editor",
         description:
-          "An open-source markdown editor that keeps notes as plain .md files in your own folders, with rich text and raw markdown modes.",
+          "A native, cross-platform, open-source markdown editor written in Rust with GPUI. It keeps notes as plain .md files in your own folders, with rich text and raw markdown modes.",
         applicationCategory: "ProductivityApplication",
         operatingSystem: "macOS, Windows, Linux",
         license: "https://opensource.org/licenses/MIT",
