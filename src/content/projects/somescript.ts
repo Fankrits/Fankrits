@@ -36,12 +36,12 @@ export const somescript: ProjectDoc = {
     { label: "License", value: "All rights reserved (private repository)" },
   ],
   hero: {
-    src: "/projects/somescript/01-landing.webp",
-    alt: "SomeScript landing page showing main.tex LaTeX source on the left and compiled Fundamental Theorem of Calculus PDF preview on the right",
+    src: "/projects/somescript/06-desktop-editor.webp",
+    alt: "SomeScript Desktop editor: agent chat with a plan and compile result on the left, LaTeX source in the middle, the compiled PDF on the right and a terminal showing no compilation errors below",
     caption:
-      "Landing page on somescript.com with the side-by-side LaTeX source and compiled PDF preview.",
-    width: 1440,
-    height: 900,
+      "SomeScript Desktop editing a demo project: agent chat, source, PDF preview and compile terminal in one window.",
+    width: 1456,
+    height: 920,
   },
   sections: [
     {
@@ -99,14 +99,101 @@ export const somescript: ProjectDoc = {
       ],
     },
     {
+      id: "somescript-editor",
+      title: "Inside the editor",
+      blocks: [
+        {
+          type: "p",
+          text: "The editor is one window with a left tool rail, a source pane, a live PDF and a terminal. These captures come from the installed desktop app (version 0.1.5) working on a small demo project, because the hosted editor sits behind sign-in.",
+        },
+        {
+          type: "image",
+          image: {
+            src: "/projects/somescript/06-desktop-editor.webp",
+            alt: "Full SomeScript Desktop editor window with agent chat, LaTeX source, PDF preview and terminal",
+            caption:
+              "The full window after an agent run: plan finished, edit applied, project recompiled with no errors.",
+            width: 1456,
+            height: 920,
+          },
+        },
+        {
+          type: "table",
+          head: ["Area", "What it does"],
+          rows: [
+            [
+              "**Top bar**",
+              "Back to the dashboard, project and file breadcrumb, **Compile**, **Download PDF** and layout toggles for the side panel, terminal and PDF.",
+            ],
+            [
+              "**Left rail**",
+              "Tabs for the file tree, the **Agent**, project search, **Tasks** and settings.",
+            ],
+            [
+              "**Source pane**",
+              "CodeMirror with a formatting toolbar (undo, bold, italic, headings, math, symbols, lists, snippets), folding and a `⌘K` search.",
+            ],
+            [
+              "**PDF pane**",
+              "The compiled document with zoom, select and pan tools, and a page navigator.",
+            ],
+            [
+              "**Terminal**",
+              "Compile output as **Raw** text or readable **Cards**, with a **Send to chat** button that hands an error to the agent.",
+            ],
+          ],
+        },
+        {
+          type: "image",
+          image: {
+            src: "/projects/somescript/07-agent-plan-diff.webp",
+            alt: "Agent panel showing tool calls, a three-step plan with one step done, and an edit to main.tex as a green diff with an Undo button",
+            caption:
+              "The agent lists and reads files, keeps a plan, then shows its edit to main.tex as a diff with an Undo button.",
+            width: 890,
+            height: 742,
+          },
+        },
+        {
+          type: "p",
+          text: "Every step is a card: files listed, a file read with its line range, a plan whose steps tick off as the agent works, each edit as a diff you can undo, and the compile result. The model picker sits under the message box, and files can be attached to a message.",
+        },
+        {
+          type: "image",
+          image: {
+            src: "/projects/somescript/08-tasks-kanban.webp",
+            alt: "Tasks kanban in the left panel with two items in To do, none On going and one checked off under Finished, beside the LaTeX source",
+            caption:
+              "The Tasks tab: a board with To do, On going and Finished lanes and a 1/3 done counter.",
+            width: 890,
+            height: 640,
+          },
+        },
+        {
+          type: "p",
+          text: "Tasks are a board for the open project that you fill in by hand. Each card has a drag handle and a checkbox; ticking it moves the card to Finished.",
+        },
+      ],
+    },
+    {
       id: "somescript-screenshots",
       title: "Screenshots",
       blocks: [
         {
           type: "callout",
           tone: "note",
-          title: "Public capture scope",
-          text: "The hosted editor workspace sits behind Clerk sign-in on `somescript.com`. These captures cover the public landing page, feature previews, documentation site, and pricing page.",
+          title: "Capture scope",
+          text: "The hosted editor sits behind Clerk sign-in on `somescript.com`. Editor views are in the section above, taken from the desktop app. These captures are the public landing page, feature previews, documentation site and pricing page.",
+        },
+        {
+          type: "image",
+          image: {
+            src: "/projects/somescript/01-landing.webp",
+            alt: "SomeScript landing page showing main.tex LaTeX source on the left and compiled Fundamental Theorem of Calculus PDF preview on the right",
+            caption: "The public landing page with a live source and PDF preview.",
+            width: 1440,
+            height: 900,
+          },
         },
         {
           type: "image",
