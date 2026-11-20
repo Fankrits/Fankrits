@@ -28,7 +28,6 @@ export const zyplus: ProjectDoc = {
       value:
         "macOS (Apple Silicon), Windows (x64) and Linux (x86_64). The Windows and Linux builds are marked experimental",
     },
-    { label: "Current version", value: "v0.5.0-beta.4" },
     {
       label: "Runtime",
       value: "One native binary (zyplus-gpui), no webview, no Node, no JavaScript engine",
@@ -78,7 +77,7 @@ export const zyplus: ProjectDoc = {
           type: "callout",
           tone: "note",
           title: "Beta, available on three platforms",
-          text: "The 0.5 line is in beta (`v0.5.0-beta.4` at the time of writing). macOS is the primary target: it is the only one with an in-app updater, and the app is not notarized yet, so the first launch needs a right-click and Open. Windows and Linux installers are published too and are labelled experimental: CI builds them, runs the unit tests and launches them, but Windows has no end to end tests and neither platform has been clicked through on every desktop environment.",
+          text: "The 0.5 line is in beta. macOS is the primary target: it is the only one with an in-app updater, and the app is not notarized yet, so the first launch needs a right-click and Open. Windows and Linux installers are published too and are labelled experimental: CI builds them, runs the unit tests and launches them, but Windows has no end to end tests and neither platform has been clicked through on every desktop environment.",
         },
       ],
     },

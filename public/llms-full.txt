@@ -19,7 +19,7 @@ An AI-native LaTeX editor with CodeMirror 6, a PDF preview with SyncTeX (click t
 A live S&P 500 sector heatmap next to daily market stories written in full Thai and English. An AI schedule publishes each article through an authenticated MCP endpoint, linked to the tickers it affects. Built with TanStack Start, Neon Postgres and Better Auth. Prices are delayed.
 
 ### Zyplus (https://github.com/Fankrits/zyplus-editor)
-A native, cross-platform, open-source (MIT) markdown editor written in Rust with GPUI and no webview. Installers are published for macOS (Apple Silicon), Windows (x64) and Linux (x86_64 .deb and AppImage); the Windows and Linux builds are experimental. Notes stay as plain files in the user's folders. Each tab switches between rich text and raw markdown. Charts, Mermaid diagrams and math render inline, JSON and CSV have their own viewers, and PDF export is built in. Rewritten from Tauri and React; latest release v0.5.0-beta.4.
+A native, cross-platform, open-source (MIT) markdown editor written in Rust with GPUI and no webview. Installers are published for macOS (Apple Silicon), Windows (x64) and Linux (x86_64 .deb and AppImage); the Windows and Linux builds are experimental. Notes stay as plain files in the user's folders. Each tab switches between rich text and raw markdown. Charts, Mermaid diagrams and math render inline, JSON and CSV have their own viewers, and PDF export is built in. Rewritten from Tauri and React.
 
 ### SomeMath (https://somemath.com)
 A math learning platform with courses and 27 arcade-style math games that teach understanding before speed. English and Thai, KaTeX formulas, CMS-managed content and PDF certificates. Built with Next.js 16, Sanity, Clerk and Stripe.
