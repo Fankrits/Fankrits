@@ -47,7 +47,7 @@ export function buildJsonLd() {
         name: "Kritsada Nhanjeing",
         alternateName: ["Fankrits", "กฤษฎา หนานเจียง"],
         url: SITE.url,
-        image: abs("/logo512.png"),
+        image: abs("/logo512.webp"),
         email: "mailto:contact@fankrits.com",
         jobTitle: "AI Operations Specialist & Mathematical Analyst",
         description:

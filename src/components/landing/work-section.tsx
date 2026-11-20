@@ -76,7 +76,7 @@ export function WorkSection() {
       className="scroll-mt-24 py-16 text-center text-white md:py-24"
     >
       <img
-        src="/logo512.png"
+        src="/logo512.webp"
         alt={`Portrait of ${PROFILE.name}`}
         width={512}
         height={512}
