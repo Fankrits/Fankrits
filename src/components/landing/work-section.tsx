@@ -1,122 +1,70 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { GlassButton } from "@/components/ui/glasscn/glass-button";
-import { PROJECT_DOCS } from "@/content/projects";
-import { PROFILE } from "./data";
-
-interface Tile {
-  src: string;
-  project: string;
-}
-
-/** Every real screenshot from the project docs (hero + up to 3 more per project), split into two rows. */
-function buildRows(): [Tile[], Tile[]] {
-  const seen = new Set<string>();
-  const tiles: Tile[] = [];
-  for (const doc of PROJECT_DOCS) {
-    const images = [
-      doc.hero,
-      ...doc.sections.flatMap((section) =>
-        section.blocks.flatMap((block) => (block.type === "image" ? [block.image] : [])),
-      ),
-    ];
-    for (const image of images.slice(0, 4)) {
-      if (seen.has(image.src)) continue;
-      seen.add(image.src);
-      tiles.push({ src: image.src, project: doc.name });
-    }
-  }
-  const a: Tile[] = [];
-  const b: Tile[] = [];
-  tiles.forEach((tile, i) => (i % 2 === 0 ? a : b).push(tile));
-  return [a, b];
-}
-
-function MarqueeRow({ tiles, reverse }: { tiles: Tile[]; reverse?: boolean }) {
-  // The list is rendered twice so the track can loop seamlessly; both copies are decorative.
-  return (
-    <div className="marquee-row overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
-      <div className={`marquee-track flex w-max ${reverse ? "marquee-reverse" : ""}`}>
-        {[0, 1].map((copy) => (
-          <ul key={copy} aria-hidden className="flex shrink-0 gap-4 pr-4">
-            {tiles.map((tile) => (
-              <li
-                key={tile.src}
-                className="relative w-56 shrink-0 overflow-hidden rounded-xl border border-white/15 bg-zinc-950 shadow-[0_14px_36px_rgba(0,0,0,0.4)] sm:w-72"
-              >
-                <img
-                  src={tile.src}
-                  alt=""
-                  width={1440}
-                  height={900}
-                  loading="lazy"
-                  decoding="async"
-                  className="aspect-[16/10] w-full object-cover object-top"
-                />
-                <span className="absolute bottom-2 left-2 rounded-md bg-black/65 px-2 py-0.5 font-agave text-[0.7rem] text-white backdrop-blur-sm">
-                  {tile.project}
-                </span>
-              </li>
-            ))}
-          </ul>
-        ))}
-      </div>
-    </div>
-  );
-}
+import { PROFILE, SUMMARY } from "./data";
 
 export function WorkSection() {
-  const [rowA, rowB] = buildRows();
-  const count = PROJECT_DOCS.length;
-
   return (
     <section
       id="work"
       aria-labelledby="work-title"
-      className="scroll-mt-24 py-16 text-center text-white md:py-24"
+      className="scroll-mt-24 pb-24 pt-10 text-white md:pb-40 md:pt-16 [text-shadow:0_2px_28px_rgba(0,0,0,0.5)]"
     >
-      <img
-        src="/logo512.webp"
-        alt={`Portrait of ${PROFILE.name}`}
-        width={512}
-        height={512}
-        decoding="async"
-        className="mx-auto size-24 rounded-full border border-white/25 object-cover shadow-[0_16px_40px_rgba(0,0,0,0.5)] md:size-28"
-      />
+      {/*
+        Staggered layout: line one of the heading runs from the left edge, line two steps in to the
+        text column, and the portrait hangs beside line two. On small screens it stacks.
+        The h2 is `contents` so its two lines can sit in separate grid cells.
+      */}
+      <div className="grid gap-y-8 lg:grid-cols-[22rem_1fr] lg:gap-x-16 lg:gap-y-0">
+        <p className="font-agave text-[0.8rem] uppercase tracking-[0.22em] text-white/80 lg:col-span-2 lg:mb-6">
+          {PROFILE.name}
+        </p>
 
-      <h2
-        id="work-title"
-        className="mt-6 font-display text-4xl font-medium tracking-tight [text-shadow:0_2px_24px_rgba(0,0,0,0.45)] md:text-6xl"
-      >
-        {PROFILE.name}
-      </h2>
-      <p className="mt-3 font-agave text-[0.85rem] uppercase tracking-[0.22em] text-white/80">
-        {PROFILE.role}
-      </p>
-
-      <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-white/85 [text-shadow:0_2px_20px_rgba(0,0,0,0.45)] md:text-lg">
-        I&apos;ve built <strong className="font-semibold text-white">{count} projects</strong> so
-        far: editors, learning platforms, market news and internal tools. Each one is documented
-        with its architecture and screenshots.
-      </p>
-
-      <div className="mt-8 flex justify-center">
-        <GlassButton
-          nativeButton={false}
-          render={<Link to="/projects" />}
-          glassVariant="liquid-refract"
-          size="lg"
-          className="rounded-full bg-white/15 px-6 text-white hover:bg-white/25"
+        <h2
+          id="work-title"
+          className="contents font-display text-5xl font-medium leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl"
         >
-          View projects
-          <ArrowRight aria-hidden className="size-4" />
-        </GlassButton>
-      </div>
+          <span className="block lg:col-span-2 lg:pl-10">
+            <em className="font-normal italic">Mathematician</em> turned
+          </span>
+          <span className="-mt-8 block lg:col-start-2 lg:row-start-3 lg:mt-0">
+            agentic engineer.
+          </span>
+        </h2>
 
-      {/* Full-bleed: break out of the page's max-w container so the rows run edge to edge. */}
-      <div className="relative left-1/2 mt-12 w-screen -translate-x-1/2 space-y-4 md:mt-16">
-        <MarqueeRow tiles={rowA} />
-        <MarqueeRow tiles={rowB} reverse />
+        {/* Uncropped square portrait with sharp corners; the offset outline sits behind it. */}
+        <div className="relative isolate w-56 sm:w-72 lg:col-start-1 lg:row-span-2 lg:row-start-3 lg:mt-3 lg:w-full">
+          <div
+            aria-hidden
+            className="absolute inset-0 -z-10 translate-x-3 translate-y-3 border border-white/40 sm:translate-x-4 sm:translate-y-4"
+          />
+          <img
+            src="/logo512.webp"
+            alt={`Portrait of ${PROFILE.name}`}
+            width={512}
+            height={512}
+            decoding="async"
+            className="aspect-square w-full border border-white/30 object-contain shadow-[0_24px_60px_rgba(0,0,0,0.5)]"
+          />
+        </div>
+
+        <div className="lg:col-start-2 lg:row-start-4 lg:mt-10">
+          <p className="max-w-lg text-lg leading-relaxed text-white/85 md:text-xl md:leading-relaxed">
+            {SUMMARY.body}
+          </p>
+          <div className="mt-8 flex">
+            <GlassButton
+              nativeButton={false}
+              render={<Link to="/projects" />}
+              glassVariant="liquid-refract"
+              size="lg"
+              className="rounded-full bg-white/15 px-6 text-white hover:bg-white/25"
+            >
+              View projects
+              <ArrowRight aria-hidden className="size-4" />
+            </GlassButton>
+          </div>
+        </div>
       </div>
     </section>
   );

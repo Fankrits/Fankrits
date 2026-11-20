@@ -1,11 +1,16 @@
 export const PROFILE = {
   name: "Kritsada Nhanjeing",
-  role: "AI Operation Specialist",
+  role: "AI Operations Specialist",
   handle: "fankrits",
   email: "contact@fankrits.com",
   github: "https://github.com/Fankrits",
   githubHandle: "@Fankrits",
   location: "Bangkok, TH",
+} as const;
+
+/** Landing intro copy, condensed from the CV. */
+export const SUMMARY = {
+  body: "I direct coding agents to plan, build and test, then verify the result before it ships. Maths taught me to break a problem down; the tools let me move fast.",
 } as const;
 
 export const CAPABILITIES = [
